@@ -2,7 +2,7 @@ const Todo = require('../models/Todo');
 
 module.exports = {
     async allTodos(req, res) {
-        await Todo.find().then(todos => {
+        await Todo.find({}).then(todos => {
             res.status(200).send(todos);
         });
     },
@@ -16,9 +16,11 @@ module.exports = {
         } else {
             const todo = await new Todo(newTodo);
             todo.save()
-                .then(() => {
+                .then((todo) => {
                     console.log("Todo Saved to DB!");
-                    res.status(200).send({ success: "Todo Created" });
+                    console.log(todo);
+                    // res.status(200).send({ success: "Todo Created" });
+                    res.status(200).send(todo);
                 })
                 .catch(err => {
                     console.log(err);

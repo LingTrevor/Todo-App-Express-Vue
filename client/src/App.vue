@@ -1,16 +1,18 @@
 <template>
   <div>
-    <AddPost formTitle="Add Todo" />
+    <AddTodo formTitle="Add Todo" />
+    <Todos />
   </div>
 </template>
 
 <script>
-import AddPost from "./components/AddPost.vue";
-
+import AddTodo from "@/components/AddTodo";
+import Todos from "./components/Todos.vue";
 export default {
   name: "app",
   components: {
-    AddPost
+    AddTodo,
+    Todos
   }
 };
 </script>
