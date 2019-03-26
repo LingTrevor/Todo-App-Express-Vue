@@ -3,6 +3,7 @@
     <ul class="todos-list">
       <li v-for="todo in allTodos" :key="todo._id" class="todo">
         {{ todo.title }}
+        <i @click="deleteTodo(todo._id)" class="fas fa-trash-alt"></i>
       </li>
     </ul>
   </Container>
@@ -17,7 +18,7 @@ export default {
     Container
   },
   methods: {
-    ...mapActions(["getTodos"])
+    ...mapActions(["getTodos", "deleteTodo"])
   },
   computed: mapGetters(["allTodos"]),
   created() {
@@ -53,6 +54,11 @@ export default {
       // background-color: #d03a63;
       background-color: #922341;
       cursor: pointer;
+    }
+    i {
+      margin-top: 3px;
+      margin-left: 3px;
+      float: right;
     }
   }
 }

@@ -1,35 +1,48 @@
-import axios from 'axios';
+import axios from "axios";
 
 const state = {
-    todos: [],
-    messages: []
+  todos: []
 };
 
 const getters = {
-    allTodos: (state) => state.todos
+  allTodos: state => state.todos
 };
 
 const actions = {
-    async getTodos({ commit }) {
-        const response = await axios.get(`http://localhost:5000/todos`);
-        console.log(response.data);
-        commit('setTodos', response.data);
-    },
-    async addTodo({ commit }, title) {
-        const response = await axios.post(`http://localhost:5000/todos/add`, {title});
-        console.log(response);
-        commit('newTodo', response.data);
-    }
+  async getTodos({ commit }) {
+    const response = await axios.get(`http://localhost:5000/todos`);
+    console.log(response.data);
+    commit("setTodos", response.data);
+  },
+  async addTodo({ commit }, title) {
+    const response = await axios.post(`http://localhost:5000/todos/add`, {
+      title
+    });
+    console.log(response);
+    commit("newTodo", response.data);
+  },
+  async deleteTodo({ commit }, id) {
+    const response = await axios.delete(
+      `http://localhost:5000/todos/delete/${id}`
+    );
+    console.log(response.data.success);
+    console.log(id);
+    commit("removeTodo", id);
+  }
 };
 
 const mutations = {
-    setTodos: (state, todos) => (state.todos = todos),
-    newTodo: (state, todo) => state.todos.unshift(todo)
+  setTodos: (state, todos) => (state.todos = todos),
+  newTodo: (state, todo) => state.todos.unshift(todo),
+  removeTodo: (state, id) =>
+    (state.todos = state.todos.filter(todo => {
+      todo.id !== id;
+    }))
 };
 
 export default {
-    state,
-    getters,
-    actions,
-    mutations
+  state,
+  getters,
+  actions,
+  mutations
 };

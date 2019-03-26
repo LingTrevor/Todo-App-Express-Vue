@@ -27,5 +27,20 @@ module.exports = {
                     res.status(500).send({ error: "Something went wrong :(" });
                 });
         }
+    },
+
+    async deleteTodo(req, res) {
+        console.log(req.params.id);
+        await Todo.deleteOne({
+            _id: req.params.id
+        })
+            .then(() => {
+                console.log("Deleted");
+                res.status(200).send({ success: 'Deleted' });
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).send({ error: "Something went wrong :(" });
+            });
     }
 }

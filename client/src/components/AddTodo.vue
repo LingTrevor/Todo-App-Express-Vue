@@ -3,8 +3,8 @@
     <div class="add-form">
       <h1>{{ formTitle }}</h1>
       <form @submit.prevent="postTodo">
-        <input type="text" v-model="todoTitle" placeholder="Title">
-        <input type="submit" value="Save">
+        <input type="text" v-model="todoTitle" placeholder="Title" />
+        <input type="submit" value="Save" />
       </form>
     </div>
   </Container>
