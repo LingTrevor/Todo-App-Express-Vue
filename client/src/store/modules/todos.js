@@ -28,6 +28,15 @@ const actions = {
     console.log(response.data.success);
     console.log(id);
     commit("removeTodo", id);
+  },
+  async todosFilter({ commit }, e) {
+    console.log(parseInt(e.target.value));
+    const limit = parseInt(e.target.value);
+    const response = await axios.get(
+      `http://localhost:5000/todos?limit=${limit}`
+    );
+    console.log(response.data);
+    commit("setTodos", response.data);
   }
 };
 

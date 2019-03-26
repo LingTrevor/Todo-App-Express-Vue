@@ -2,7 +2,8 @@ const Todo = require('../models/Todo');
 
 module.exports = {
     async allTodos(req, res) {
-        await Todo.find({}).then(todos => {
+        const limit = parseInt(req.query.limit);
+        await Todo.find({}).limit(limit).then(todos => {
             res.status(200).send(todos);
         });
     },
