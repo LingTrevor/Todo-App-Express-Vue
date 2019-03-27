@@ -3,7 +3,7 @@ const Todo = require('../models/Todo');
 module.exports = {
     async allTodos(req, res) {
         const limit = parseInt(req.query.limit);
-        await Todo.find({}).limit(limit)
+        await Todo.find({}).limit(limit).sort({createdAt: 'desc'})
             .then(todos => {
                 res.status(200).send(todos);
             });
