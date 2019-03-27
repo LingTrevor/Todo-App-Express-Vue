@@ -2,6 +2,7 @@
   <Container>
     <ul class="todos-list">
       <li
+        @dblclick="updateTodo(todo)"
         v-for="todo in allTodos"
         :key="todo._id"
         class="todo"
@@ -23,7 +24,7 @@ export default {
     Container
   },
   methods: {
-    ...mapActions(["getTodos", "deleteTodo"])
+    ...mapActions(["getTodos", "deleteTodo", "updateTodo"])
   },
   computed: mapGetters(["allTodos"]),
   created() {

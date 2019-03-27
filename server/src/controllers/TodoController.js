@@ -50,7 +50,7 @@ module.exports = {
         const todoID = req.params.id;
         await Todo.findByIdAndUpdate(todoID)
             .then(todo => {
-                todo.isDone = req.body.isDone;
+                todo.isDone = !todo.isDone;
                 todo.save()
                     .then((todo) => {
                         res.status(200).send(todo);
