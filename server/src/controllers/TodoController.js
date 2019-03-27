@@ -3,9 +3,10 @@ const Todo = require('../models/Todo');
 module.exports = {
     async allTodos(req, res) {
         const limit = parseInt(req.query.limit);
-        await Todo.find({}).limit(limit).then(todos => {
-            res.status(200).send(todos);
-        });
+        await Todo.find({}).limit(limit)
+            .then(todos => {
+                res.status(200).send(todos);
+            });
     },
 
     async addTodo(req, res) {
@@ -42,6 +43,22 @@ module.exports = {
             .catch((err) => {
                 console.log(err);
                 res.status(500).send({ error: "Something went wrong :(" });
+            });
+    },
+
+    async editTodo(req, res) {
+        const todoID = req.params.id;
+        await Todo.findByIdAndUpdate(todoID)
+            .then(todo => {
+                todo.isDone = req.body.isDone;
+                todo.save()
+                    .then((todo) => {
+                        res.status(200).send(todo);
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                        res.status(500).send({ error: "Something went wrong :(" });
+                    });
             });
     }
 }
