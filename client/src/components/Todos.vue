@@ -38,14 +38,13 @@ export default {
 .todos-list {
   min-width: 320px;
   list-style: none;
-  padding: 15px;
+  padding: 10px;
 
   .todo {
     border: 1px solid #d03a63;
     border-radius: 10px;
     background-color: #fbecf0;
-    max-width: 300px;
-    // color: #d03a63;
+    min-width: 300px;
     color: #922341;
     text-align: center;
     font-weight: bolder;
@@ -57,26 +56,52 @@ export default {
 
     &:hover {
       color: #fbecf0;
-      // background-color: #d03a63;
       background-color: #922341;
-      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+      box-shadow: 0 5px 10px 0 rgba(208, 58, 99, 0.2);
       cursor: pointer;
+      transform: scale(1.1);
     }
+
     i {
       margin-top: 3px;
       margin-left: 3px;
       float: right;
+
+      &:active {
+        color: #e79aaf;
+      }
+      &:hover {
+        transform: scale(1.4);
+        transition: 0.4s linear;
+      }
     }
-  }
 
-  .is-done {
-    text-decoration: line-through;
-    background-color: transparent;
-    border: 1px dashed #922341;
+    &.is-done {
+      text-decoration: line-through;
+      background-color: transparent;
+      border: 1px dashed #922341;
+      transition-duration: 0.8s;
 
-    &:hover {
-      background-color: #fbecf0;
-      color: #922341;
+      &:hover {
+        background-color: #fbecf0;
+        color: #922341;
+      }
+    }
+
+    @media screen and(max-width: 768px) {
+      &:hover {
+        transform: none;
+      }
+    }
+    @media screen and(max-width: 576px) {
+      &:hover {
+        transform: none;
+      }
+    }
+    @media screen and(max-width: 320px) {
+      &:hover {
+        transform: none;
+      }
     }
   }
 }

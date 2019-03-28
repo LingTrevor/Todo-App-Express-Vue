@@ -38,6 +38,5 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  margin-top: 50px;
 }
 </style>
