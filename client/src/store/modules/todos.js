@@ -27,12 +27,12 @@ const actions = {
     commit("removeTodo", id);
   },
   async todosFilter({ commit }, e) {
-    console.log(parseInt(e.target.value));
+    // console.log(parseInt(e.target.value));
     const limit = parseInt(e.target.value);
     const response = await axios.get(
       `http://localhost:5000/todos?limit=${limit}`
     );
-    console.log(response.data);
+    // console.log(response.data);
     commit("setTodos", response.data);
   },
   async updateTodo({ commit }, todo) {
@@ -50,7 +50,6 @@ const mutations = {
     (state.todos = state.todos.filter(todo => todo._id !== id)),
   updTodo: (state, updateTodo) => {
     const index = state.todos.findIndex(todo => todo._id === updateTodo._id);
-    console.log(index);
     if (index !== -1) {
       state.todos.splice(index, 1, updateTodo);
     }

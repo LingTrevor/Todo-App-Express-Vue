@@ -31,7 +31,6 @@ export default {
 }
 
 body {
-  //  background-image: radial-gradient(circle at left top, #ffe2c5, #ffba75);
   background: linear-gradient(to bottom right, #ffe2c5, #ffba75);
   background-repeat: no-repeat;
   background-size: cover;

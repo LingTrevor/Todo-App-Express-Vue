@@ -97,6 +97,7 @@ h1 {
       background-color: #ffe2c5;
       color: #d03a63;
       cursor: pointer;
+      transition-duration: 3s;
     }
     @media screen and(max-width: 768px) {
       &:hover {

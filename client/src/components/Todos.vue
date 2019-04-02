@@ -44,6 +44,7 @@ export default {
     border: 1px solid #d03a63;
     border-radius: 10px;
     background-color: #fbecf0;
+    max-width: 350px;
     min-width: 300px;
     color: #922341;
     text-align: center;
@@ -51,15 +52,14 @@ export default {
     font-size: 18px;
     padding: 10px;
     margin-bottom: 15px;
-    transition-duration: 0.8s;
-    overflow: scroll;
+    transition-duration: 0.2s;
 
     &:hover {
       color: #fbecf0;
       background-color: #922341;
       box-shadow: 0 5px 10px 0 rgba(208, 58, 99, 0.2);
       cursor: pointer;
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
 
     i {
@@ -80,7 +80,7 @@ export default {
       text-decoration: line-through;
       background-color: transparent;
       border: 1px dashed #922341;
-      transition-duration: 0.8s;
+      transition-duration: 0.2s;
 
       &:hover {
         background-color: #fbecf0;
