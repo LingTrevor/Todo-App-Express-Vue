@@ -16,8 +16,8 @@ app.use(todoRoutes);
 
 mongoose.connect(DB_URL, { useNewUrlParser: true })
     .then(() => console.log("MongoDB Connected..."))
-    .catch((err) => console.log(err))
+    .catch((err) => console.log(err));
 
 app.listen(port, () => {
     console.log(`Server started on port: ${port}`)
-})
+});
