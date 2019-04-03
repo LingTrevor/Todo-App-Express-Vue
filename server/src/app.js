@@ -18,6 +18,17 @@ mongoose.connect(DB_URL, { useNewUrlParser: true })
     .then(() => console.log("MongoDB Connected..."))
     .catch((err) => console.log(err));
 
+// Handle Production
+if (process.env.NODE_ENV === 'production') {
+    //Static folder
+    app.use(express.static(__dirname + '/client/public'));
+
+    //Handle SPA
+    app.get(/.*/, (req, res) => {
+        res.sendFile(__dirname + '/client/public/index.html');
+    })
+}
+
 app.listen(port, () => {
     console.log(`Server started on port: ${port}`)
 });
