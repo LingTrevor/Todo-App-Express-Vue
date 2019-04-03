@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const { port, DB_User, DB_Password } = require('./config/config');
-const DB_URL = `mongodb://${DB_User}:${DB_Password}@ds119996.mlab.com:19996/express-vue-todo-app`;
+const DB_URL = YOUR_DB_URL;
 const todoRoutes = require('./routes/todos');
 
 const app = express();
