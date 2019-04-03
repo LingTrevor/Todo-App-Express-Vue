@@ -45,7 +45,7 @@ export default {
     border-radius: 10px;
     background-color: #fbecf0;
     max-width: 350px;
-    min-width: 300px;
+    min-width: 320px;
     color: #922341;
     text-align: center;
     font-weight: bolder;
