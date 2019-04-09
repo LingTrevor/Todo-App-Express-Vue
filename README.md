@@ -46,12 +46,12 @@ It builds production files to **server/src/client/public** folder
 
     server/src/config/config.js
         Replace:
-        YOUR_DB_USER = your database username (must be STRING)
-        YOUR_DB_PASSWORD = your database password (must be STRING)
+        YOUR_DB_USER = your database username (must be a STRING)
+        YOUR_DB_PASSWORD = your database password (must be a STRING)
 
     server/src/app.js 
         Replace: 
-        YOUR_DB_URL = your database URL (must be STRING)
+        YOUR_DB_URL = your database URL (must be a STRING)
 ---
 **Routes**
 
